@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: 220 60% 2%;
+  --foreground: 210 40% 98%;
+  --surface: 220 50% 4%;
+  --surface-container-lowest: 220 60% 3%;
+  --surface-container-low: 220 40% 7%;
+  --surface-container: 220 35% 10%;
+  --surface-container-high: 220 30% 14%;
+  --surface-container-highest: 220 25% 18%;
+  --surface-variant: 220 25% 15%;
+  --on-surface: 210 40% 98%;
+  --on-surface-variant: 218 30% 75%;
+  --outline: 217 20% 50%;
+  --outline-variant: 220 25% 22%;
+  --primary: 250 95% 80%;
+  --primary-container: 250 85% 60%;
+  --on-primary: 0 0% 100%;
+  --secondary: 270 95% 78%;
+  --tertiary: 180 90% 76%;
+  --tertiary-container: 180 80% 50%;
+  --error: 0 90% 75%;
+  --border: 220 28% 25%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: hsl(var(--background));
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: 
+    radial-gradient(circle at 0% 0%, hsl(var(--primary-container) / 0.22), transparent 55%),
+    radial-gradient(circle at 100% 100%, hsl(var(--secondary) / 0.18), transparent 55%),
+    hsl(var(--background));
+  color: hsl(var(--on-surface));
+  font-family: var(--font-inter), "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space-grotesk), "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+button,
+textarea,
+input {
+  font: inherit;
+}
+
+::selection {
+  background: hsl(var(--primary-container) / 0.45);
+  color: hsl(var(--on-primary));
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: hsl(var(--surface-container-lowest));
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--outline-variant));
+  border-radius: 9999px;
+  transition: background 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--outline));
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary-container) / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--primary-container) / 0.4);
+  }
+}
